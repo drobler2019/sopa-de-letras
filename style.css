@@ -4,3 +4,24 @@
   box-sizing: border-box;
   margin: 0;
 }
+
+body {
+  block-size: 100vb;
+  align-content: center;
+}
+
+main {
+  inline-size: max-content;
+  margin: auto;
+  padding: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  td {
+    border: thin solid;
+    inline-size: 50px;
+    block-size: 50px;
+    text-align: center;
+  }
+}

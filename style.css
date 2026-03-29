@@ -14,14 +14,20 @@ main {
   inline-size: max-content;
   margin: auto;
   padding: 10px;
+  box-shadow: 0px 0px 8px #433805;
 }
 
 table {
   border-collapse: collapse;
   td {
-    border: thin solid;
+    border: 2px solid #917b0a;
     inline-size: 50px;
     block-size: 50px;
     text-align: center;
+    p {
+      font-weight: bold;
+      user-select: none;
+      font-size: 1.2rem;
+    }
   }
 }

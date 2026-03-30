@@ -19,15 +19,27 @@ main {
 
 table {
   border-collapse: collapse;
+  cursor: pointer;
   td {
     border: 2px solid #917b0a;
     inline-size: 50px;
     block-size: 50px;
     text-align: center;
+    transition: background-color .3s linear, color .3s linear;
+
+    &:hover {
+      background-color: greenyellow;
+      color: white;
+    }
     p {
       font-weight: bold;
       user-select: none;
       font-size: 1.2rem;
     }
   }
+}
+
+.selected {
+  background-color: greenyellow;
+  color: white;
 }

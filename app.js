@@ -2,8 +2,9 @@ import { selectCells } from "./components/SelectCells.js";
 import { WordSearch } from "./components/wordSearch.js";
 
 (() => {
-  const sopa = new WordSearch();
+  const wordSearch = new WordSearch();
   const main = document.querySelector("main");
-  selectCells(sopa);
-  main.append(sopa);
+  const { firstElementChild: sopaLetras } = wordSearch;
+  selectCells(sopaLetras);
+  main.append(wordSearch);
 })();

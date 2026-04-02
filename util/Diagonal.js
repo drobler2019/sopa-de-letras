@@ -11,7 +11,7 @@ export function getDiagonalValues(size) {
       array.push(row);
       row.toReversed().forEach(({ left }, index) => {
         const obj = array.at(x).at(index);
-        obj.right = left;
+        obj.right = Math.abs(left);
       });
     } else {
       for (let z = x; z < size; z++) {

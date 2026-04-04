@@ -12,6 +12,8 @@ export function getDiagonalValues(size) {
       row.toReversed().forEach(({ left }, index) => {
         const obj = array.at(x).at(index);
         obj.right = Math.abs(left);
+        obj.column = index + 1;
+        obj.row = 1;
       });
     } else {
       for (let z = x; z < size; z++) {
@@ -21,8 +23,13 @@ export function getDiagonalValues(size) {
             const value = row.at(-1).left - 1;
             row.push({ left: value });
           }
-          const valueRight = row.toReversed().map(({left}) => Math.abs(left));
-          valueRight.forEach((value, index) => (row.at(index).right = value));
+          const valueRight = row.toReversed().map(({ left }) => Math.abs(left));
+          valueRight.forEach((value, index) => {
+            const obj = row.at(index);
+            obj.right = value;
+            obj.column = index + 1;
+            obj.row = z + 1;
+          });
           break;
         }
       }

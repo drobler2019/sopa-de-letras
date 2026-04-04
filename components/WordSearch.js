@@ -18,9 +18,8 @@ export class WordSearch extends HTMLElement {
       const p = document.createElement("p");
       p.textContent = "test";
       td.append(p);
-      const numColumn = c + 1;
       const obj = this.array.at(r).at(c);
-      td.setAttribute("column", numColumn);
+      td.setAttribute("column", obj.column);
       td.setAttribute("diagonalLeft", obj.left);
       td.setAttribute("diagonalright", obj.right);
       cells.push(td);
@@ -31,7 +30,7 @@ export class WordSearch extends HTMLElement {
   createRows() {
     for (let r = 0; r < this.size; r++) {
       const tr = document.createElement("tr");
-      const numRow = r + 1;
+      const numRow = this.array.at(r).at(0).row;
       tr.setAttribute("row", numRow);
       tr.append(...this.createCells(r));
       this.table.append(tr);

@@ -1,4 +1,10 @@
-export function getDiagonalValues(size) {
+import { addLetters } from "../components/Letter.js";
+
+const abecedario = Array.from({ length: 26 }, (_, i) =>
+  String.fromCharCode(97 + i),
+);
+
+export function getDiagonalValues(size, words) {
   const array = [];
   let row = [];
   for (let x = 0; x < size; x++) {
@@ -14,6 +20,9 @@ export function getDiagonalValues(size) {
         obj.right = Math.abs(left);
         obj.column = index + 1;
         obj.row = 1;
+        obj.letter = abecedario.at(
+          Math.floor(Math.random() * abecedario.length),
+        );
       });
     } else {
       for (let z = x; z < size; z++) {
@@ -29,6 +38,9 @@ export function getDiagonalValues(size) {
             obj.right = value;
             obj.column = index + 1;
             obj.row = z + 1;
+            obj.letter = abecedario.at(
+              Math.floor(Math.random() * abecedario.length),
+            );
           });
           break;
         }
@@ -37,5 +49,7 @@ export function getDiagonalValues(size) {
       array.push(row);
     }
   }
+
+  addLetters(array, words, size);
   return array;
 }

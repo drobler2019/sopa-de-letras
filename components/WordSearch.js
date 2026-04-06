@@ -5,7 +5,7 @@ export class WordSearch extends HTMLElement {
     super();
     this.size = size;
     this.words = words;
-    this.array = getDiagonalValues(this.size);
+    this.array = getDiagonalValues(this.size, words);
     this.table = document.createElement("table");
     this.createRows();
     this.append(this.table);
@@ -14,11 +14,11 @@ export class WordSearch extends HTMLElement {
   createCells(r) {
     const cells = [];
     for (let c = 0; c < this.size; c++) {
+      const obj = this.array.at(r).at(c);
       const td = document.createElement("td");
       const p = document.createElement("p");
-      p.textContent = "test";
+      p.textContent = obj.letter.toUpperCase();
       td.append(p);
-      const obj = this.array.at(r).at(c);
       td.setAttribute("column", obj.column);
       td.setAttribute("diagonalLeft", obj.left);
       td.setAttribute("diagonalright", obj.right);
